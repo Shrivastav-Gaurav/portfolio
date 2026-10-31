@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gaurav Shrivastav — TPM & AI Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0a0f;
+    --bg2: #111118;
+    --bg3: #1a1a24;
+    --border: #2a2a38;
+    --accent: #6366f1;
+    --accent2: #818cf8;
+    --accent-glow: rgba(99,102,241,0.15);
+    --text: #e2e8f0;
+    --text2: #94a3b8;
+    --text3: #64748b;
+    --green: #10b981;
+    --purple: #a78bfa;
+    --orange: #f59e0b;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; line-height: 1.6; min-height: 100vh; }
+  nav {
+    position: fixed; top: 0; width: 100%; z-index: 100;
+    background: rgba(10,10,15,0.85); backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border); padding: 0 2rem;
+    display: flex; align-items: center; justify-content: space-between; height: 60px;
+  }
+  .nav-logo { font-weight: 700; font-size: 1rem; color: var(--text); letter-spacing: -0.02em; }
+  .nav-logo span { color: var(--accent2); }
+  .nav-links { display: flex; gap: 2rem; }
+  .nav-links a { color: var(--text2); text-decoration: none; font-size: 0.875rem; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--text); }
+  .hero {
+    padding: 140px 2rem 80px; max-width: 1100px; margin: 0 auto;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;
+  }
+  .hero-tag {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    background: var(--accent-glow); border: 1px solid rgba(99,102,241,0.3);
+    color: var(--accent2); font-size: 0.75rem; font-weight: 500;
+    padding: 0.35rem 0.75rem; border-radius: 100px; margin-bottom: 1.25rem;
+    letter-spacing: 0.05em; text-transform: uppercase;
+  }
+  .hero-tag::before { content: '●'; font-size: 0.5rem; color: var(--green); }
+  .hero h1 { font-size: 3rem; font-weight: 700; line-height: 1.1; letter-spacing: -0.03em; margin-bottom: 1rem; }
+  .hero h1 span { color: var(--accent2); }
+  .hero-sub { color: var(--text2); font-size: 1.05rem; margin-bottom: 2rem; max-width: 480px; }
+  .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .btn { padding: 0.65rem 1.5rem; border-radius: 8px; font-size: 0.875rem; font-weight: 500; cursor: pointer; text-decoration: none; transition: all 0.2s; display: inline-flex; align-items: center; gap: 0.5rem; }
+  .btn-primary { background: var(--accent); color: white; border: 1px solid var(--accent); }
+  .btn-primary:hover { background: var(--accent2); transform: translateY(-1px); box-shadow: 0 4px 20px rgba(99,102,241,0.4); }
+  .btn-ghost { background: transparent; color: var(--text2); border: 1px solid var(--border); }
+  .btn-ghost:hover { border-color: var(--accent2); color: var(--text); }
+  .hero-stats { background: var(--bg2); border: 1px solid var(--border); border-radius: 16px; padding: 2rem; display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+  .stat-num { font-size: 2rem; font-weight: 700; color: var(--text); letter-spacing: -0.03em; }
+  .stat-num span { color: var(--accent2); }
+  .stat-label { font-size: 0.8rem; color: var(--text3); margin-top: 0.15rem; }
+  .stat-divider { grid-column: 1/-1; height: 1px; background: var(--border); }
+  section { max-width: 1100px; margin: 0 auto; padding: 5rem 2rem; }
+  .section-label { font-size: 0.75rem; font-weight: 600; color: var(--accent2); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.75rem; }
+  .section-title { font-size: 2rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 0.75rem; }
+  .section-sub { color: var(--text2); font-size: 1rem; margin-bottom: 3rem; max-width: 600px; }
+  .projects-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+  .project-card { background: var(--bg2); border: 1px solid var(--border); border-radius: 16px; padding: 1.75rem; transition: all 0.25s; position: relative; overflow: hidden; text-decoration: none; color: inherit; display: block; }
+  .project-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--accent), var(--purple)); opacity: 0; transition: opacity 0.25s; }
+  .project-card:hover { border-color: rgba(99,102,241,0.4); transform: translateY(-2px); box-shadow: 0 8px 32px rgba(0,0,0,0.3); }
+  .project-card:hover::before { opacity: 1; }
+  .project-card.featured { grid-column: 1/-1; display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+  .project-header { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 1rem; }
+  .project-icon { width: 44px; height: 44px; border-radius: 10px; background: var(--accent-glow); border: 1px solid rgba(99,102,241,0.3); display: flex; align-items: center; justify-content: center; font-size: 1.25rem; }
+  .project-badge { font-size: 0.7rem; font-weight: 600; padding: 0.25rem 0.6rem; border-radius: 100px; letter-spacing: 0.05em; }
+  .badge-live { background: rgba(16,185,129,0.15); color: var(--green); border: 1px solid rgba(16,185,129,0.3); }
+  .badge-building { background: rgba(245,158,11,0.15); color: var(--orange); border: 1px solid rgba(245,158,11,0.3); }
+  .project-name { font-size: 1.15rem; font-weight: 600; margin-bottom: 0.35rem; letter-spacing: -0.01em; }
+  .project-desc { color: var(--text2); font-size: 0.875rem; line-height: 1.6; margin-bottom: 1.25rem; }
+  .project-patterns { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.25rem; }
+  .pattern-tag { font-size: 0.7rem; font-weight: 500; padding: 0.2rem 0.55rem; border-radius: 6px; background: var(--bg3); border: 1px solid var(--border); color: var(--text3); font-family: 'JetBrains Mono', monospace; }
+  .project-stack { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+  .stack-chip { font-size: 0.7rem; padding: 0.15rem 0.5rem; border-radius: 4px; background: rgba(99,102,241,0.1); color: var(--accent2); font-family: 'JetBrains Mono', monospace; }
+  .project-links { display: flex; gap: 0.75rem; margin-top: 1.25rem; }
+  .project-link { font-size: 0.8rem; color: var(--text3); text-decoration: none; display: flex; align-items: center; gap: 0.3rem; transition: color 0.2s; }
+  .project-link:hover { color: var(--accent2); }
+  .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+  .skill-card { background: var(--bg2); border: 1px solid var(--border); border-radius: 12px; padding: 1.25rem; }
+  .skill-card-title { font-size: 0.8rem; font-weight: 600; color: var(--text2); margin-bottom: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; }
+  .skill-list { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+  .skill-item { font-size: 0.75rem; padding: 0.2rem 0.6rem; border-radius: 6px; background: var(--bg3); color: var(--text2); border: 1px solid var(--border); }
+  .exp-timeline { display: flex; flex-direction: column; gap: 1.5rem; }
+  .exp-item { display: grid; grid-template-columns: 140px 1fr; gap: 2rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--border); }
+  .exp-item:last-child { border-bottom: none; }
+  .exp-period { font-size: 0.8rem; color: var(--text3); font-family: 'JetBrains Mono', monospace; padding-top: 0.2rem; }
+  .exp-role { font-size: 1rem; font-weight: 600; margin-bottom: 0.2rem; }
+  .exp-company { font-size: 0.875rem; color: var(--accent2); margin-bottom: 0.5rem; }
+  .exp-detail { font-size: 0.875rem; color: var(--text2); }
+  .contact-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+  .contact-card { background: var(--bg2); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; text-align: center; text-decoration: none; color: inherit; transition: all 0.2s; }
+  .contact-card:hover { border-color: rgba(99,102,241,0.4); transform: translateY(-2px); }
+  .contact-icon { font-size: 1.5rem; margin-bottom: 0.5rem; }
+  .contact-label { font-size: 0.875rem; font-weight: 500; margin-bottom: 0.25rem; }
+  .contact-value { font-size: 0.8rem; color: var(--text3); }
+  footer { border-top: 1px solid var(--border); padding: 2rem; text-align: center; color: var(--text3); font-size: 0.8rem; }
+  .section-divider { border: none; border-top: 1px solid var(--border); margin: 0; }
+  @media (max-width: 768px) {
+    .hero { grid-template-columns: 1fr; gap: 2rem; padding-top: 100px; }
+    .projects-grid { grid-template-columns: 1fr; }
+    .project-card.featured { grid-column: 1; grid-template-columns: 1fr; }
+    .skills-grid { grid-template-columns: 1fr; }
+    .contact-grid { grid-template-columns: 1fr; }
+    .exp-item { grid-template-columns: 1fr; gap: 0.25rem; }
+    .nav-links { display: none; }
+    .hero h1 { font-size: 2rem; }
+  }
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-logo">Gaurav<span>.</span>dev</div>
+  <div class="nav-links">
+    <a href="#projects">Projects</a>
+    <a href="#skills">Skills</a>
+    <a href="#experience">Experience</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<div class="hero">
+  <div>
+    <div class="hero-tag">Open to TPM roles · FAANG / Tier-1</div>
+    <h1>Gaurav<br><span>Shrivastav</span></h1>
+    <p class="hero-sub">Technical Program Manager with 20+ years in software engineering, SAP, and Shell. Building agentic AI systems to solve real workflow problems.</p>
+    <div class="hero-actions">
+      <a href="https://github.com/Shrivastav-Gaurav" target="_blank" class="btn btn-primary">⬡ GitHub</a>
+      <a href="https://www.linkedin.com/in/gauravshrivastav" target="_blank" class="btn btn-ghost">LinkedIn →</a>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div class="stat"><div class="stat-num">20<span>+</span></div><div class="stat-label">Years tech experience</div></div>
+    <div class="stat"><div class="stat-num">5</div><div class="stat-label">AI projects shipped</div></div>
+    <div class="stat-divider"></div>
+    <div class="stat"><div class="stat-num">6</div><div class="stat-label">Agentic patterns used</div></div>
+    <div class="stat"><div class="stat-num">BE<span> CS</span></div><div class="stat-label">Computer Science, 2003</div></div>
+  </div>
+</div>
+
+<hr class="section-divider">
+
+<section id="projects">
+  <div class="section-label">Portfolio</div>
+  <div class="section-title">What I've built</div>
+  <p class="section-sub">Agentic AI systems built with Python, LLMs, and real-world data — not toy demos.</p>
+  <div class="projects-grid">
+
+    <div class="project-card featured">
+      <div>
+        <div class="project-header">
+          <div class="project-icon">🧠</div>
+          <span class="project-badge badge-live">LIVE</span>
+        </div>
+        <div class="project-name">ContentPilot</div>
+        <p class="project-desc">Agentic SME content aggregator for FAANG TPM interview prep. Ingests YouTube channels and LinkedIn posts, extracts structured insights using LLMs, stores them in a hybrid ChromaDB + SQLite vector store, and answers interview questions with source-cited synthesis. Includes a LinkedIn Saved Scanner with weekly APScheduler automation and a per-card chat interface for deep learning.</p>
+        <div class="project-patterns">
+          <span class="pattern-tag">RAG</span>
+          <span class="pattern-tag">Orchestrator</span>
+          <span class="pattern-tag">Persistent Memory</span>
+          <span class="pattern-tag">Autonomous Agent</span>
+          <span class="pattern-tag">Tool Use</span>
+          <span class="pattern-tag">Chain-of-Thought</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/Shrivastav-Gaurav/ContentPilot" class="project-link" target="_blank">⬡ GitHub →</a>
+        </div>
+      </div>
+      <div>
+        <div class="project-stack" style="margin-bottom:1rem">
+          <span class="stack-chip">Python</span><span class="stack-chip">ChromaDB</span><span class="stack-chip">SQLite</span>
+          <span class="stack-chip">Playwright</span><span class="stack-chip">OpenRouter</span><span class="stack-chip">Streamlit</span>
+          <span class="stack-chip">APScheduler</span><span class="stack-chip">Jina Reader</span><span class="stack-chip">yt-dlp</span><span class="stack-chip">LangSmith</span>
+        </div>
+        <div style="background:var(--bg3);border:1px solid var(--border);border-radius:10px;padding:1.25rem;">
+          <div style="font-size:0.75rem;color:var(--text3);margin-bottom:0.75rem;font-family:'JetBrains Mono',monospace;">// Key capabilities</div>
+          <div style="display:flex;flex-direction:column;gap:0.5rem;">
+            <div style="font-size:0.8rem;color:var(--text2);">✦ YouTube + LinkedIn ingest pipeline</div>
+            <div style="font-size:0.8rem;color:var(--text2);">✦ LLM extraction → structured insight cards</div>
+            <div style="font-size:0.8rem;color:var(--text2);">✦ Hybrid semantic + FTS5 search</div>
+            <div style="font-size:0.8rem;color:var(--text2);">✦ Interview Q&amp;A with source citations</div>
+            <div style="font-size:0.8rem;color:var(--text2);">✦ Per-card chat for deep learning</div>
+            <div style="font-size:0.8rem;color:var(--text2);">✦ Weekly LinkedIn auto-scan</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-header"><div class="project-icon">✍️</div><span class="project-badge badge-live">LIVE</span></div>
+      <div class="project-name">PostPilot</div>
+      <p class="project-desc">LinkedIn content automation engine. Schedules and publishes posts via Playwright browser automation with session persistence, randomized delays, and 2FA support.</p>
+      <div class="project-patterns"><span class="pattern-tag">Browser Automation</span><span class="pattern-tag">Session Management</span></div>
+      <div class="project-stack"><span class="stack-chip">Node.js</span><span class="stack-chip">Playwright</span><span class="stack-chip">LinkedIn</span></div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-header"><div class="project-icon">🎯</div><span class="project-badge badge-live">LIVE</span></div>
+      <div class="project-name">Job Copilot</div>
+      <p class="project-desc">Chrome extension for intelligent job search. Scores job listings against your profile, tailors resume bullets to JD keywords, and tracks applications — all from within LinkedIn.</p>
+      <div class="project-patterns"><span class="pattern-tag">Chrome Extension</span><span class="pattern-tag">LLM Scoring</span></div>
+      <div class="project-stack"><span class="stack-chip">JavaScript</span><span class="stack-chip">Chrome APIs</span><span class="stack-chip">OpenAI</span></div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-header"><div class="project-icon">⚡</div><span class="project-badge badge-building">BUILDING</span></div>
+      <div class="project-name">Shell Workforce Capability Risk Agent</div>
+      <p class="project-desc">Agentic system analyzing workforce skill gaps and capability risks across Shell's technology portfolio. Built on real enterprise data with multi-million dollar business case methodology.</p>
+      <div class="project-patterns"><span class="pattern-tag">Autonomous Agent</span><span class="pattern-tag">Risk Analysis</span></div>
+      <div class="project-stack"><span class="stack-chip">Python</span><span class="stack-chip">LangChain</span><span class="stack-chip">Azure</span></div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-header"><div class="project-icon">📋</div><span class="project-badge badge-live">LIVE</span></div>
+      <div class="project-name">Agentic PRD Framework</div>
+      <p class="project-desc">7-layer agentic PRD template with interactive form and print-to-PDF. Guides PMs through structured product definition using AI-assisted prompting at each layer.</p>
+      <div class="project-patterns"><span class="pattern-tag">Structured Prompting</span><span class="pattern-tag">Document Generation</span></div>
+      <div class="project-stack"><span class="stack-chip">HTML/CSS</span><span class="stack-chip">JavaScript</span><span class="stack-chip">Claude API</span></div>
+    </div>
+
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<section id="skills">
+  <div class="section-label">Capabilities</div>
+  <div class="section-title">Technical skills</div>
+  <p class="section-sub">Built through 20 years of shipping software and 2 years of hands-on AI development.</p>
+  <div class="skills-grid">
+    <div class="skill-card">
+      <div class="skill-card-title">Agentic AI</div>
+      <div class="skill-list">
+        <span class="skill-item">RAG pipelines</span><span class="skill-item">LLM orchestration</span>
+        <span class="skill-item">Vector search</span><span class="skill-item">Prompt engineering</span>
+        <span class="skill-item">OpenRouter</span><span class="skill-item">LangSmith</span><span class="skill-item">ChromaDB</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-card-title">Engineering</div>
+      <div class="skill-list">
+        <span class="skill-item">Python</span><span class="skill-item">Node.js</span><span class="skill-item">SQLite</span>
+        <span class="skill-item">Playwright</span><span class="skill-item">REST APIs</span><span class="skill-item">Git</span><span class="skill-item">Streamlit</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-card-title">TPM / PM</div>
+      <div class="skill-list">
+        <span class="skill-item">Program delivery</span><span class="skill-item">Roadmapping</span>
+        <span class="skill-item">Business cases</span><span class="skill-item">Stakeholder mgmt</span>
+        <span class="skill-item">Risk management</span><span class="skill-item">SAP</span><span class="skill-item">Agile</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<section id="experience">
+  <div class="section-label">Background</div>
+  <div class="section-title">Experience</div>
+  <p class="section-sub">Software engineer turned PM turned TPM — with an AI layer on top.</p>
+  <div class="exp-timeline">
+    <div class="exp-item">
+      <div class="exp-period">2018 → now</div>
+      <div>
+        <div class="exp-role">Capability Manager / TPM</div>
+        <div class="exp-company">Shell</div>
+        <div class="exp-detail">Leading technology capability programs across Shell's digital portfolio. Built multi-million dollar business cases for workforce transformation. Managing cross-functional delivery with engineering, product, and business stakeholders.</div>
+      </div>
+    </div>
+    <div class="exp-item">
+      <div class="exp-period">2008 → 2018</div>
+      <div>
+        <div class="exp-role">SAP Program Manager</div>
+        <div class="exp-company">Enterprise Consulting</div>
+        <div class="exp-detail">Led large-scale SAP implementation and transformation programs. Managed vendor relationships, delivery timelines, and executive stakeholders across multiple industries.</div>
+      </div>
+    </div>
+    <div class="exp-item">
+      <div class="exp-period">2003 → 2008</div>
+      <div>
+        <div class="exp-role">Software Engineer</div>
+        <div class="exp-company">BE Computer Science, 2003</div>
+        <div class="exp-detail">Started as a software engineer after completing BE in Computer Science. Built the engineering foundation that now enables direct work with AI systems and code.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<section id="contact">
+  <div class="section-label">Get in touch</div>
+  <div class="section-title">Let's talk</div>
+  <p class="section-sub">Open to Senior TPM and Staff TPM roles at FAANG and Tier-1 tech companies.</p>
+  <div class="contact-grid">
+    <a href="https://www.linkedin.com/in/gauravshrivastav" target="_blank" class="contact-card">
+      <div class="contact-icon">💼</div>
+      <div class="contact-label">LinkedIn</div>
+      <div class="contact-value">gauravshrivastav</div>
+    </a>
+    <a href="https://github.com/Shrivastav-Gaurav" target="_blank" class="contact-card">
+      <div class="contact-icon">⬡</div>
+      <div class="contact-label">GitHub</div>
+      <div class="contact-value">Shrivastav-Gaurav</div>
+    </a>
+    <a href="mailto:gaurav.shrivastav.tech@gmail.com" class="contact-card">
+      <div class="contact-icon">✉️</div>
+      <div class="contact-label">Email</div>
+      <div class="contact-value">gaurav.shrivastav.tech@gmail.com</div>
+    </a>
+  </div>
+</section>
+
+<footer><p>Gaurav Shrivastav · TPM & AI Builder · 2026</p></footer>
+</body>
+</html>
