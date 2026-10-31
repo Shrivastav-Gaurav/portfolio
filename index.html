@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gaurav Shrivastav — Senior TPM &amp; AI Builder</title>
+  <meta name="description" content="Senior TPM and AI builder. 20+ years from shipping SAP country versions to governing $110M portfolios to building LLM agents.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0B0B0F;
+      --card: #121218;
+      --border: rgba(255,255,255,.08);
+      --border-hi: rgba(255,255,255,.15);
+      --accent: #E8B04B;
+      --accent2: #8FB8A8;
+      --accent3: #C9A0DC;
+      --text1: #F2F2F0;
+      --text2: #A0A0AA;
+      --text3: #5A5A63;
+      --max-w: 1080px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text1);
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(11,11,15,.88);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(255,255,255,.04);
+    }
+    .nav-inner {
+      max-width: var(--max-w); margin: 0 auto; padding: 0 24px;
+      height: 60px; display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo {
+      font-family: 'Instrument Serif', serif;
+      font-size: 1.1rem; color: var(--text1);
+    }
+    .nav-links { display: flex; gap: 28px; list-style: none; align-items: center; }
+    .nav-links a {
+      font-size: 0.85rem; font-weight: 500;
+      color: var(--text2); transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--text1); }
+    .nav-cta {
+      font-size: 0.8rem !important; font-weight: 600 !important;
+      color: var(--accent) !important;
+      border: 1px solid rgba(232,176,75,.3);
+      padding: 6px 16px; border-radius: 6px;
+      transition: background .2s !important;
+    }
+    .nav-cta:hover { background: rgba(232,176,75,.08) !important; }
+    @media (max-width: 680px) {
+      .nav-links li:not(:last-child):not(:nth-last-child(2)) { display: none; }
+      .nav-links { gap: 14px; }
+    }
+
+    /* ── SHARED LAYOUT ── */
+    .section { max-width: var(--max-w); margin: 0 auto; padding: 80px 24px; }
+    .section-label {
+      font-size: 0.65rem; font-weight: 700; letter-spacing: .12em;
+      text-transform: uppercase; color: var(--accent); margin-bottom: 10px;
+    }
+    .section-title {
+      font-family: 'Instrument Serif', serif;
+      font-size: clamp(1.75rem, 3vw, 2.25rem);
+      font-weight: 400; color: var(--text1); margin-bottom: 40px; line-height: 1.2;
+    }
+    hr.divider {
+      border: none; border-top: 1px solid var(--border);
+      max-width: var(--max-w); margin: 0 auto;
+    }
+
+    /* ── HERO ── */
+    #hero { max-width: var(--max-w); margin: 0 auto; padding: 96px 24px 72px; }
+    .hero-grid {
+      display: grid; grid-template-columns: 1.4fr 1fr;
+      gap: 56px; align-items: center;
+    }
+    .hero-badge {
+      display: inline-block;
+      font-size: 0.7rem; font-weight: 600; letter-spacing: .1em;
+      text-transform: uppercase; color: var(--accent);
+      background: rgba(232,176,75,.07);
+      border: 1px solid rgba(232,176,75,.2);
+      padding: 5px 14px; border-radius: 20px; margin-bottom: 22px;
+    }
+    .hero-h1 {
+      font-family: 'Instrument Serif', serif;
+      font-size: clamp(2rem, 4.5vw, 3.25rem);
+      font-weight: 400; line-height: 1.15;
+      color: var(--text1); margin-bottom: 20px;
+    }
+    .hero-h1 em { font-style: italic; color: var(--accent); }
+    .hero-sub {
+      font-size: 1.05rem; color: var(--text2);
+      max-width: 480px; margin-bottom: 36px; line-height: 1.65;
+    }
+    .hero-btns { display: flex; gap: 12px; flex-wrap: wrap; }
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: var(--accent); color: #0B0B0F;
+      font-weight: 600; font-size: 0.875rem;
+      padding: 12px 24px; border-radius: 8px; transition: opacity .2s;
+    }
+    .btn-primary:hover { opacity: .88; }
+    .btn-ghost {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: transparent; color: var(--text1);
+      font-weight: 500; font-size: 0.875rem;
+      padding: 11px 23px; border-radius: 8px;
+      border: 1px solid var(--border); transition: border-color .2s, background .2s;
+    }
+    .btn-ghost:hover { border-color: var(--border-hi); background: rgba(255,255,255,.03); }
+    .hero-photo img {
+      width: 100%; max-width: 320px; aspect-ratio: 4/5;
+      object-fit: cover; border-radius: 20px;
+      filter: grayscale(.2) contrast(1.05);
+      border: 1px solid var(--border); display: block; margin-left: auto;
+    }
+    @media (max-width: 760px) {
+      .hero-grid { grid-template-columns: 1fr; gap: 32px; }
+      .hero-photo { order: -1; }
+      .hero-photo img { max-width: 112px; border-radius: 16px; margin: 0; }
+    }
+
+    /* ── CREDIBILITY STRIP ── */
+    .strip-wrap {
+      border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,.012); padding: 26px 24px;
+    }
+    .strip-inner {
+      max-width: var(--max-w); margin: 0 auto;
+      display: flex; align-items: center; gap: 36px; flex-wrap: wrap;
+    }
+    .strip-label {
+      font-size: 0.65rem; font-weight: 600; letter-spacing: .1em;
+      text-transform: uppercase; color: var(--text3); white-space: nowrap;
+    }
+    .strip-companies { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+    .strip-co {
+      font-size: 0.8rem; font-weight: 600; color: var(--text3);
+      letter-spacing: .04em; text-transform: uppercase;
+    }
+    .strip-pipe { width: 1px; height: 28px; background: var(--border); flex-shrink: 0; }
+    .strip-stats { display: flex; gap: 28px; flex-wrap: wrap; }
+    .strip-stat .n {
+      font-family: 'Instrument Serif', serif;
+      font-size: 1.3rem; color: var(--text1); line-height: 1;
+    }
+    .strip-stat .l {
+      font-size: 0.68rem; color: var(--text3);
+      margin-top: 3px; letter-spacing: .03em;
+    }
+    @media (max-width: 600px) { .strip-pipe { display: none; } .strip-stats { gap: 16px; } }
+
+    /* ── ENTERPRISE CASE STUDIES ── */
+    .case-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+    .case-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 16px; padding: 28px;
+      display: flex; flex-direction: column; gap: 14px;
+      position: relative; overflow: hidden;
+    }
+    .case-card::before {
+      content: ""; position: absolute;
+      top: 0; left: 0; right: 0; height: 2px;
+      background: var(--accent); opacity: .55;
+    }
+    .case-tag {
+      font-size: 0.65rem; font-weight: 700; letter-spacing: .1em;
+      text-transform: uppercase; color: var(--accent);
+    }
+    .case-title {
+      font-family: 'Instrument Serif', serif;
+      font-size: 1.25rem; font-weight: 400;
+      line-height: 1.25; color: var(--text1);
+    }
+    .case-block { font-size: 0.83rem; color: var(--text2); line-height: 1.6; }
+    .case-block strong { color: var(--text1); font-weight: 600; }
+    .case-outcome {
+      margin-top: auto; padding-top: 16px;
+      border-top: 1px solid var(--border);
+      display: flex; gap: 16px; flex-wrap: wrap;
+    }
+    .case-metric .m-val {
+      font-family: 'Instrument Serif', serif;
+      font-size: 1.2rem; color: var(--text1); line-height: 1;
+    }
+    .case-metric .m-lbl {
+      font-size: 0.67rem; color: var(--text3);
+      text-transform: uppercase; letter-spacing: .06em; margin-top: 3px;
+    }
+
+    /* ── AI BUILDS ── */
+    .ai-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 20px;
+    }
+    .ai-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 16px; padding: 24px;
+      display: flex; flex-direction: column; gap: 10px;
+      transition: border-color .2s;
+    }
+    .ai-card:hover { border-color: var(--border-hi); }
+    .ai-card-top {
+      display: flex; align-items: flex-start;
+      justify-content: space-between; gap: 8px;
+    }
+    .ai-kicker {
+      font-size: 0.65rem; font-weight: 700; letter-spacing: .1em;
+      text-transform: uppercase; color: var(--text3);
+    }
+    .ai-status {
+      font-size: 0.65rem; font-weight: 600;
+      padding: 3px 9px; border-radius: 10px;
+      background: rgba(143,184,168,.1); color: var(--accent2);
+      white-space: nowrap; flex-shrink: 0;
+    }
+    .ai-headline {
+      font-family: 'Instrument Serif', serif;
+      font-size: 1.1rem; font-weight: 400;
+      line-height: 1.3; color: var(--text1);
+    }
+    .ai-desc {
+      font-size: 0.82rem; color: var(--text2);
+      line-height: 1.55; flex: 1;
+    }
+    .ai-footer {
+      margin-top: 6px; padding-top: 12px;
+      border-top: 1px solid var(--border);
+      display: flex; align-items: center;
+      justify-content: space-between; gap: 8px;
+    }
+    .ai-stack { font-size: 0.68rem; color: var(--text3); }
+    .ai-link {
+      font-size: 0.78rem; font-weight: 600;
+      color: var(--accent); display: flex; align-items: center;
+      gap: 4px; transition: gap .15s; white-space: nowrap;
+      background: none; border: none; cursor: pointer;
+      font-family: 'Inter', sans-serif;
+    }
+    .ai-link:hover { gap: 8px; }
+
+    /* video card */
+    .video-preview {
+      width: 100%; aspect-ratio: 16/9;
+      border-radius: 10px; overflow: hidden;
+      background: #000; position: relative;
+    }
+    .video-preview video { width: 100%; height: 100%; object-fit: cover; }
+    .video-hint {
+      position: absolute; bottom: 8px; right: 8px;
+      background: rgba(0,0,0,.72); color: #fff;
+      font-size: 0.68rem; font-weight: 600;
+      padding: 4px 10px; border-radius: 6px;
+      cursor: pointer; border: none; font-family: 'Inter', sans-serif;
+      transition: background .2s;
+    }
+    .video-hint:hover { background: rgba(0,0,0,.9); }
+
+    /* ── HOW I OPERATE ── */
+    .principles-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+    .principle {
+      padding: 28px; border: 1px solid var(--border);
+      border-radius: 16px; background: var(--card);
+    }
+    .principle-num {
+      font-family: 'Instrument Serif', serif;
+      font-size: 2.8rem; color: rgba(232,176,75,.12);
+      line-height: 1; margin-bottom: 14px;
+    }
+    .principle-title {
+      font-family: 'Instrument Serif', serif;
+      font-size: 1.1rem; color: var(--text1);
+      margin-bottom: 10px; line-height: 1.3;
+    }
+    .principle-body { font-size: 0.84rem; color: var(--text2); line-height: 1.65; }
+
+    /* ── CAREER ARC ── */
+    .arc {
+      border-left: 1px solid rgba(255,255,255,.12);
+      padding-left: 32px; max-width: 660px; list-style: none;
+    }
+    .arc li { position: relative; margin-bottom: 32px; }
+    .arc li:last-child { margin-bottom: 0; }
+    .arc li::before {
+      content: ""; position: absolute;
+      left: -37px; top: 7px;
+      width: 9px; height: 9px; border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 0 3px rgba(232,176,75,.12);
+    }
+    .arc .yr {
+      font: 500 11px/1 'Inter', sans-serif;
+      color: var(--text3); letter-spacing: .08em;
+      text-transform: uppercase; margin-bottom: 5px;
+    }
+    .arc .role {
+      font-family: 'Instrument Serif', serif;
+      font-size: 1.05rem; color: var(--text1); margin-bottom: 5px;
+    }
+    .arc .detail { font-size: 0.82rem; color: var(--text2); line-height: 1.55; }
+    .arc .highlight {
+      font-size: 0.75rem; font-weight: 600;
+      color: var(--accent); margin-top: 6px;
+    }
+
+    /* ── WRITING ── */
+    .writing-featured {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 16px; padding: 32px;
+      margin-bottom: 24px; display: block;
+      transition: border-color .2s;
+    }
+    .writing-featured:hover { border-color: var(--border-hi); }
+    .writing-kicker {
+      font-size: 0.65rem; font-weight: 700; letter-spacing: .12em;
+      text-transform: uppercase; color: var(--accent); margin-bottom: 10px;
+    }
+    .writing-title {
+      font-family: 'Instrument Serif', serif;
+      font-size: 1.5rem; color: var(--text1);
+      line-height: 1.3; margin-bottom: 8px;
+    }
+    .writing-desc { font-size: 0.88rem; color: var(--text2); line-height: 1.6; margin-bottom: 14px; }
+    .writing-cta {
+      font-size: 0.82rem; font-weight: 600; color: var(--accent);
+      display: inline-flex; align-items: center; gap: 4px;
+    }
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 16px;
+    }
+    .post {
+      position: relative; aspect-ratio: 16/10;
+      padding: 20px; border-radius: 14px; overflow: hidden;
+      background: var(--card); border: 1px solid var(--border);
+      display: flex; flex-direction: column; justify-content: flex-end;
+      transition: border-color .2s;
+    }
+    .post:hover { border-color: var(--border-hi); }
+    .post::before {
+      content: ""; position: absolute; inset: 0; opacity: .35;
+      background:
+        radial-gradient(circle at 85% 15%, var(--tint) 0, transparent 55%),
+        repeating-linear-gradient(135deg, rgba(255,255,255,.03) 0 1px, transparent 1px 14px);
+    }
+    .post .kicker {
+      font: 600 11px/1 'Inter', sans-serif;
+      letter-spacing: .12em; text-transform: uppercase;
+      color: var(--tint); margin-bottom: 8px; position: relative;
+    }
+    .post h3 {
+      font: 400 17px/1.25 'Instrument Serif', serif;
+      color: #F2F2F0; position: relative;
+    }
+    .post[data-topic="ai"] { --tint: #E8B04B; }
+    .post[data-topic="tpm"] { --tint: #8FB8A8; }
+    .post[data-topic="career"] { --tint: #C9A0DC; }
+
+    /* ── ABOUT ── */
+    .about-grid {
+      display: grid; grid-template-columns: 1fr 260px;
+      gap: 56px; align-items: start;
+    }
+    .about-text p {
+      font-size: 1rem; color: var(--text2);
+      line-height: 1.7; margin-bottom: 16px;
+    }
+    .about-text p:last-child { margin-bottom: 0; }
+    .about-text strong { color: var(--text1); font-weight: 600; }
+    .about-creds { margin-top: 24px; display: flex; flex-wrap: wrap; gap: 8px; }
+    .cred-tag {
+      font-size: 0.72rem; font-weight: 600; color: var(--text2);
+      background: rgba(255,255,255,.04); border: 1px solid var(--border);
+      padding: 5px 12px; border-radius: 20px;
+    }
+    .about-links { list-style: none; }
+    .about-links li { border-bottom: 1px solid var(--border); }
+    .about-links li:last-child { border-bottom: none; }
+    .about-links a {
+      display: flex; align-items: center; gap: 10px;
+      font-size: 0.875rem; color: var(--text2);
+      padding: 12px 0; transition: color .2s;
+    }
+    .about-links a:hover { color: var(--text1); }
+    .about-links svg { flex-shrink: 0; }
+    @media (max-width: 760px) {
+      .about-grid { grid-template-columns: 1fr; gap: 32px; }
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 32px 24px;
+    }
+    .footer-inner {
+      max-width: var(--max-w); margin: 0 auto;
+      display: flex; align-items: center;
+      justify-content: space-between; gap: 20px; flex-wrap: wrap;
+    }
+    .footer-name {
+      font-family: 'Instrument Serif', serif;
+      font-size: 1rem; color: var(--text3);
+    }
+    .footer-links { display: flex; gap: 24px; list-style: none; }
+    .footer-links a {
+      font-size: 0.82rem; color: var(--text3); transition: color .2s;
+    }
+    .footer-links a:hover { color: var(--text2); }
+
+    /* ── VIDEO DIALOG ── */
+    dialog {
+      background: #000; border: 1px solid var(--border);
+      border-radius: 16px; padding: 0;
+      max-width: 900px; width: 92vw; overflow: hidden;
+      position: relative;
+    }
+    dialog::backdrop {
+      background: rgba(0,0,0,.88);
+      backdrop-filter: blur(4px);
+    }
+    .dialog-close {
+      position: absolute; top: 10px; right: 10px;
+      background: rgba(255,255,255,.12); border: none;
+      color: #fff; font-size: 1rem; width: 32px; height: 32px;
+      border-radius: 50%; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      z-index: 10; transition: background .2s;
+    }
+    .dialog-close:hover { background: rgba(255,255,255,.22); }
+    #demo-video { width: 100%; height: auto; display: block; }
+  </style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">Gaurav Shrivastav</a>
+    <ul class="nav-links">
+      <li><a href="#work">Work</a></li>
+      <li><a href="#writing">Writing</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#" onclick="return false;">Résumé</a></li>
+      <li><a href="mailto:gaurav.on.it@gmail.com" class="nav-cta">Get in touch</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ── HERO ── -->
+<div id="hero">
+  <div class="hero-grid">
+    <div class="hero-text">
+      <div class="hero-badge">Senior TPM · AI Builder · 20+ years</div>
+      <h1 class="hero-h1">I govern complex programmes.<br><em>I also build agents.</em></h1>
+      <p class="hero-sub">From shipping SAP country versions to governing nine-figure portfolios to writing LLM orchestration code — the arc isn't common. That's the point.</p>
+      <div class="hero-btns">
+        <a href="#work" class="btn-primary">See selected work →</a>
+        <a href="mailto:gaurav.on.it@gmail.com" class="btn-ghost">Get in touch</a>
+      </div>
+    </div>
+    <div class="hero-photo">
+      <img src="gaurav-photo.jpg" alt="Gaurav Shrivastav — Senior TPM and AI Builder" loading="eager">
+    </div>
+  </div>
+</div>
+
+<!-- ── CREDIBILITY STRIP ── -->
+<div class="strip-wrap">
+  <div class="strip-inner">
+    <span class="strip-label">Experience at</span>
+    <div class="strip-companies">
+      <span class="strip-co">SAP Labs</span>
+      <span class="strip-co">Sopra</span>
+      <span class="strip-co">Ramco</span>
+      <span class="strip-co">Shell</span>
+    </div>
+    <div class="strip-pipe"></div>
+    <div class="strip-stats">
+      <div class="strip-stat">
+        <div class="n">~$110M</div>
+        <div class="l">portfolio governed</div>
+      </div>
+      <div class="strip-stat">
+        <div class="n">$20M</div>
+        <div class="l">revenue enabled</div>
+      </div>
+      <div class="strip-stat">
+        <div class="n">45-person</div>
+        <div class="l">CoE led</div>
+      </div>
+      <div class="strip-stat">
+        <div class="n">35+</div>
+        <div class="l">countries</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- ── ENTERPRISE PROGRAMMES ── -->
+<section id="work" class="section">
+  <div class="section-label">Enterprise programmes</div>
+  <h2 class="section-title">Selected work at scale</h2>
+  <div class="case-grid">
+
+    <!-- Case 1: Marine Lubes -->
+    <div class="case-card">
+      <div class="case-tag">Business transformation · Shell · 30+ countries</div>
+      <div class="case-title">Turning Marine Lubes from a sales machine into a service business</div>
+      <div class="case-block">
+        <strong>Problem:</strong> Revenue was tied to volume, not value. The business had no data infrastructure to see service profitability or customer behaviour at the account level.
+      </div>
+      <div class="case-block">
+        <strong>My role:</strong> IT Manager ("mini-CIO") with full P&amp;L accountability. I built the business case, designed the data architecture, and led the transition to a service-centric model — consolidating disparate sources into an enterprise data lake and shipping the analytics dashboards that made service economics visible for the first time.
+      </div>
+      <div class="case-block">
+        <strong>Decision I pushed:</strong> Insisted the data foundation be built before any dashboards. Teams wanted BI first. Without clean data underneath, it would have been expensive rework within 18 months.
+      </div>
+      <div class="case-outcome">
+        <div class="case-metric">
+          <div class="m-val">$20M</div>
+          <div class="m-lbl">revenue stream enabled</div>
+        </div>
+        <div class="case-metric">
+          <div class="m-val">~30%</div>
+          <div class="m-lbl">revenue growth</div>
+        </div>
+        <div class="case-metric">
+          <div class="m-val">$4M</div>
+          <div class="m-lbl">programme investment</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Case 2: RPA CoE -->
+    <div class="case-card">
+      <div class="case-tag">Centre of Excellence · Shell · 7 business units</div>
+      <div class="case-title">Scaling an RPA CoE from under 10 automations to 100+</div>
+      <div class="case-block">
+        <strong>Problem:</strong> Automation requests were ad hoc, underprioritised, and delivered inconsistently. No intake governance, no reuse, no shared criteria for what was worth automating.
+      </div>
+      <div class="case-block">
+        <strong>My role:</strong> CoE Lead. I built the governance framework, automation criteria, and intake process from scratch. Led the programme team — 45 people including vendor staff — across 7 business units simultaneously.
+      </div>
+      <div class="case-block">
+        <strong>Decision I pushed:</strong> Required a formal business case for every request before it entered the pipeline. Teams resisted. It eliminated ~30% of low-value work before it consumed developer hours.
+      </div>
+      <div class="case-outcome">
+        <div class="case-metric">
+          <div class="m-val">100+</div>
+          <div class="m-lbl">automations shipped</div>
+        </div>
+        <div class="case-metric">
+          <div class="m-val">$1.4M</div>
+          <div class="m-lbl">efficiency gains · 9 months</div>
+        </div>
+        <div class="case-metric">
+          <div class="m-val">250%</div>
+          <div class="m-lbl">pipeline growth</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Case 3: Portfolio Governance -->
+    <div class="case-card">
+      <div class="case-tag">Delivery governance · Shell · ~40 active projects</div>
+      <div class="case-title">Rebuilding delivery confidence across a $110M portfolio</div>
+      <div class="case-block">
+        <strong>Problem:</strong> A nine-figure portfolio running across 9 lines of business had inconsistent ownership, low predictability, and no common maturity baseline. Post-investment reviews didn't exist.
+      </div>
+      <div class="case-block">
+        <strong>My role:</strong> Co-architect of the Delivery Ownership Maturity Assessment (DOMA) framework, deployed across ~40 projects. I also made post-investment reviews standard practice using the VADA framework — Value, Affordability, Do-ability, Absorption.
+      </div>
+      <div class="case-block">
+        <strong>Decision I pushed:</strong> Published maturity scores by team, publicly inside the programme. Visibility created healthy competition and surfaced under-resourced teams before they became delivery failures.
+      </div>
+      <div class="case-outcome">
+        <div class="case-metric">
+          <div class="m-val">70% → 90%</div>
+          <div class="m-lbl">on-time delivery</div>
+        </div>
+        <div class="case-metric">
+          <div class="m-val">~$190M</div>
+          <div class="m-lbl">enterprise value protected</div>
+        </div>
+        <div class="case-metric">
+          <div class="m-val">80%</div>
+          <div class="m-lbl">supplier consolidation</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ── AI BUILDS ── -->
+<section id="ai-builds" class="section">
+  <div class="section-label">AI builds</div>
+  <h2 class="section-title">What I've built, not just managed</h2>
+  <div class="ai-grid">
+
+    <!-- Workforce Agent (video card) -->
+    <div class="ai-card">
+      <div class="ai-card-top">
+        <div class="ai-kicker">Agentic AI · Python · LangChain</div>
+        <span class="ai-status">● Live demo</span>
+      </div>
+      <div class="video-preview">
+        <!-- Video file: push shell-workforce-agent-DEMO-v4.mp4 to repo to enable autoplay preview -->
+        <video autoplay muted loop playsinline preload="none" id="demo-preview"
+          style="display:none;" onerror="this.style.display='none'">
+          <source src="shell-workforce-agent-DEMO-v4.mp4" type="video/mp4">
+        </video>
+        <!-- Fallback poster shown until video loads -->
+        <div id="video-fallback" style="width:100%;height:100%;background:linear-gradient(135deg,rgba(232,176,75,.12),rgba(143,184,168,.06));display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px;cursor:pointer;" onclick="document.getElementById('demo-dialog').showModal()">
+          <div style="font-size:2rem;opacity:.5;">▶</div>
+          <div style="font-size:0.75rem;color:var(--text2);font-weight:500;">Watch demo</div>
+        </div>
+        <button class="video-hint" onclick="document.getElementById('demo-dialog').showModal()">▶ Watch full demo</button>
+      </div>
+      <div class="ai-headline">See the skills gap before it becomes a delivery risk.</div>
+      <div class="ai-desc">An agent that reads workforce and project signals, flags roles where capability is thin, and explains why. Turns a quarterly spreadsheet exercise into a continuous early warning.</div>
+      <div class="ai-footer">
+        <span class="ai-stack">Python · LangChain · OpenRouter</span>
+        <button class="ai-link" onclick="document.getElementById('demo-dialog').showModal()">Watch demo →</button>
+      </div>
+    </div>
+
+    <!-- ContentPilot -->
+    <div class="ai-card">
+      <div class="ai-card-top">
+        <div class="ai-kicker">AI Agent · Python</div>
+        <span class="ai-status">● Live</span>
+      </div>
+      <div class="ai-headline">Following 30 experts shouldn't mean 30 open tabs.</div>
+      <div class="ai-desc">An agent that collects posts and videos from the TPM and AI voices I trust, summarises them, and makes them searchable by person or topic. I specced it, built it, and use it daily.</div>
+      <div class="ai-footer">
+        <span class="ai-stack">Python · OpenRouter · LangChain</span>
+        <a href="https://github.com/Shrivastav-Gaurav" target="_blank" rel="noopener" class="ai-link">View on GitHub →</a>
+      </div>
+    </div>
+
+    <!-- PostPilot -->
+    <div class="ai-card">
+      <div class="ai-card-top">
+        <div class="ai-kicker">AI Pipeline · Python</div>
+        <span class="ai-status">● Live</span>
+      </div>
+      <div class="ai-headline">A steady LinkedIn presence without the Sunday-night scramble.</div>
+      <div class="ai-desc">A fetch → draft → schedule pipeline that writes in my voice. A human approval step means nothing is published without me — and that was a deliberate design choice.</div>
+      <div class="ai-footer">
+        <span class="ai-stack">Python · OpenRouter · LinkedIn API</span>
+        <a href="https://github.com/Shrivastav-Gaurav" target="_blank" rel="noopener" class="ai-link">View on GitHub →</a>
+      </div>
+    </div>
+
+    <!-- PRD Framework -->
+    <div class="ai-card">
+      <div class="ai-card-top">
+        <div class="ai-kicker">Framework · Interactive tool</div>
+        <span class="ai-status">● V2 live</span>
+      </div>
+      <div class="ai-headline">PRDs were written for software that does what it's told. Agents don't.</div>
+      <div class="ai-desc">Traditional PRDs miss autonomy, unpredictable outputs and evaluation. This 7-layer framework covers goals, tools, guardrails, evals and failure modes — V1 → V2, plus a coach and 3 worked examples.</div>
+      <div class="ai-footer">
+        <span class="ai-stack">Static HTML · V2 template</span>
+        <a href="prd.html" class="ai-link">Open framework →</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ── HOW I OPERATE ── -->
+<section id="principles" class="section">
+  <div class="section-label">How I operate</div>
+  <h2 class="section-title">Three things I've found to be true</h2>
+  <div class="principles-grid">
+
+    <div class="principle">
+      <div class="principle-num">01</div>
+      <div class="principle-title">Governance that speeds things up, not slows them down.</div>
+      <div class="principle-body">The best delivery frameworks I've built were disliked by one group and loved by another. They removed decision ambiguity from the team and put it where it belonged. Bureaucracy is what happens when governance is designed to protect the person who built it, not the delivery.</div>
+    </div>
+
+    <div class="principle">
+      <div class="principle-num">02</div>
+      <div class="principle-title">Build the business case before writing the spec.</div>
+      <div class="principle-body">Every programme I've led that went well started with a question about value, not scope. If I can't articulate why we're doing this in a single paragraph — and what "done" means financially — the spec will drift. The Marine Lubes case took months to get right before a line of code was written. Worth it.</div>
+    </div>
+
+    <div class="principle">
+      <div class="principle-num">03</div>
+      <div class="principle-title">Scale with a system, not with headcount.</div>
+      <div class="principle-body">Whether it's a practice (40 → 200+ consultants), a CoE (&lt;10 → 100+ use cases), or a delivery portfolio, the mechanism is always the same: common intake, clear criteria, visible progress, and a governance layer that makes the next thing easier than the last.</div>
+    </div>
+
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ── CAREER ARC ── -->
+<section id="career" class="section">
+  <div class="section-label">Career arc</div>
+  <h2 class="section-title">Code to enterprise to agents — in one line</h2>
+  <ul class="arc">
+    <li>
+      <div class="yr">2003</div>
+      <div class="role">Software Engineer — Snowebs, then Keane India</div>
+      <div class="detail">BE CS with Gold Medal. First code shipped professionally. Built a foundation I still draw on — I can read a pull request and understand what it's actually doing.</div>
+    </li>
+    <li>
+      <div class="yr">2005 – 2008</div>
+      <div class="role">Principal Consultant — SAP Labs · India · Singapore · Germany</div>
+      <div class="detail">Shipped the Roster (Quota) system for the SAP HCM India country version — a product decision that opened a multi-million-dollar market segment for SAP in India. Part of one of the largest SAP HR transformations, for Singapore Defence.</div>
+      <div class="highlight">30,000+ HCM users across Singapore Defence and India Public Sector</div>
+    </li>
+    <li>
+      <div class="yr">2008 – 2014</div>
+      <div class="role">SAP Project Manager — Sopra India</div>
+      <div class="detail">Helped grow the SAP practice from 40+ to 200+ consultants and from 3 to 6 accounts. Learned what it means to scale a delivery operation with governance rather than headcount alone.</div>
+    </li>
+    <li>
+      <div class="yr">2014 – 2015</div>
+      <div class="role">HCM Presales Consultant — Ramco Systems</div>
+      <div class="detail">Covered APAC, ANZ and the Middle East in competitive HCM evaluations. Won against SAP HCM and Workday. Developed a market-level view of HR technology that I still carry.</div>
+    </li>
+    <li>
+      <div class="yr">2015 – 2022</div>
+      <div class="role">Technology &amp; Transformation Leader — Shell</div>
+      <div class="detail">IT Manager ("mini-CIO") for Marine B2B Lubricants. Led the RPA Centre of Excellence with a 45-person programme team across 7 business units. Co-architected the delivery governance framework used across ~$110M in active investment.</div>
+      <div class="highlight">$20M revenue stream enabled · $1.4M efficiency gains · 70% → 90% on-time delivery</div>
+    </li>
+    <li>
+      <div class="yr">2022 – now</div>
+      <div class="role">Delivery Lead + AI Builder — Shell</div>
+      <div class="detail">Leading a 25-person delivery team (BAs, QA, engineers) across Real Estate, Corporate Security, Travel and Health — $12M+ in active investment. Simultaneously building agentic AI systems to stay ahead of where the work is going.</div>
+      <div class="highlight">$1.6M AI productivity gains · 35% analyst cycle time reduction</div>
+    </li>
+  </ul>
+</section>
+
+<hr class="divider">
+
+<!-- ── WRITING ── -->
+<section id="writing" class="section">
+  <div class="section-label">Writing</div>
+  <h2 class="section-title">On AI, delivery, and the intersection</h2>
+
+  <a href="https://medium.com/@Gaurav.Shrivastav/what-it-really-takes-to-deliver-a-genai-chatbot-at-scale-3d86d73bff5a"
+     target="_blank" rel="noopener" class="writing-featured">
+    <div class="writing-kicker">Featured · AI delivery</div>
+    <div class="writing-title">What it really takes to deliver a GenAI chatbot at scale</div>
+    <div class="writing-desc">The parts the case studies leave out — data quality, stakeholder trust, and what happens six months post-launch when the pilot energy has gone.</div>
+    <div class="writing-cta">Read on Medium →</div>
+  </a>
+
+  <div class="blog-grid">
+    <a href="https://medium.com/@Gaurav.Shrivastav/measuring-the-roi-of-ai-initiatives-in-the-enterprise-a-deep-dive-blueprint-0082342b00ad"
+       target="_blank" rel="noopener" class="post" data-topic="tpm">
+      <div class="kicker">Enterprise · TPM</div>
+      <h3>Measuring the ROI of AI initiatives in the enterprise</h3>
+    </a>
+    <a href="https://medium.com/@Gaurav.Shrivastav/building-trust-in-the-age-of-ai-security-by-design-playbook-for-tpms-c8c2f5575a90"
+       target="_blank" rel="noopener" class="post" data-topic="tpm">
+      <div class="kicker">Security · TPM</div>
+      <h3>Security by design: a playbook for TPMs</h3>
+    </a>
+    <a href="https://medium.com/@Gaurav.Shrivastav/how-to-build-a-scalable-and-successful-generative-ai-strategy-for-your-enterprise-74c0f2f99368"
+       target="_blank" rel="noopener" class="post" data-topic="ai">
+      <div class="kicker">Strategy · AI</div>
+      <h3>How to build a scalable GenAI strategy for your enterprise</h3>
+    </a>
+    <a href="https://medium.com/@Gaurav.Shrivastav/part-1-building-trust-in-the-age-of-ai-risks-tpms-must-tackle-now-1c928b55f0f2"
+       target="_blank" rel="noopener" class="post" data-topic="tpm">
+      <div class="kicker">Risk · AI</div>
+      <h3>AI risks TPMs must tackle now</h3>
+    </a>
+    <a href="https://medium.com/@Gaurav.Shrivastav/choosing-wisely-what-every-program-manager-should-know-about-deploying-ai-in-the-enterprise-1d82f3997e27"
+       target="_blank" rel="noopener" class="post" data-topic="career">
+      <div class="kicker">Career · PM</div>
+      <h3>What every program manager should know about deploying AI</h3>
+    </a>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ── ABOUT ── -->
+<section id="about" class="section">
+  <div class="section-label">About</div>
+  <h2 class="section-title">A bit more context</h2>
+  <div class="about-grid">
+    <div class="about-text">
+      <p>I started writing code in 2003. I spent seven years inside SAP — as a consultant, as a product contributor, and as a project manager — before moving into delivery leadership. For the last decade at Shell I've governed large technology portfolios, built Centres of Excellence, and made "value before scope" a habit rather than a slide.</p>
+      <p>The rare thing about my background: I've sat on every side of the table. I've written production code, shipped a commercial SAP country version, built the business case that unlocked a $20M revenue stream, governed ~$110M in concurrent investment, and I'm now writing LLM orchestration code on the side. That range is what I bring to a senior TPM role — the ability to hold the strategy conversation in the morning and the technical architecture review in the afternoon, with credibility in both rooms.</p>
+      <p>I'm based in India. I hold a Gold Medal in Computer Science, an Executive Post-Graduate Diploma in Operations Management (1st Rank, Symbiosis), and recent certifications in Blockchain from IIIT Bangalore and FinTech from IIM Kozhikode.</p>
+      <div class="about-creds">
+        <span class="cred-tag">BE CS · Gold Medal</span>
+        <span class="cred-tag">Exec PGD Ops · 1st Rank</span>
+        <span class="cred-tag">IIM Kozhikode · FinTech</span>
+        <span class="cred-tag">Google Generative AI Leader</span>
+        <span class="cred-tag">CSM · CSPO</span>
+        <span class="cred-tag">Lean Six Sigma Green Belt</span>
+      </div>
+    </div>
+    <div>
+      <ul class="about-links">
+        <li>
+          <a href="https://www.linkedin.com/in/shrivastavgaurav/" target="_blank" rel="noopener">
+            <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            linkedin.com/in/shrivastavgaurav
+          </a>
+        </li>
+        <li>
+          <a href="https://github.com/Shrivastav-Gaurav" target="_blank" rel="noopener">
+            <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+            github.com/Shrivastav-Gaurav
+          </a>
+        </li>
+        <li>
+          <a href="https://medium.com/@Gaurav.Shrivastav" target="_blank" rel="noopener">
+            <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/></svg>
+            Gaurav.Shrivastav on Medium
+          </a>
+        </li>
+        <li>
+          <a href="mailto:gaurav.on.it@gmail.com">
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"/></svg>
+            gaurav.on.it@gmail.com
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-inner">
+    <span class="footer-name">Gaurav Shrivastav</span>
+    <ul class="footer-links">
+      <li><a href="https://www.linkedin.com/in/shrivastavgaurav/" target="_blank" rel="noopener">LinkedIn</a></li>
+      <li><a href="https://github.com/Shrivastav-Gaurav" target="_blank" rel="noopener">GitHub</a></li>
+      <li><a href="https://medium.com/@Gaurav.Shrivastav" target="_blank" rel="noopener">Medium</a></li>
+      <li><a href="mailto:gaurav.on.it@gmail.com">Email</a></li>
+    </ul>
+  </div>
+</footer>
+
+<!-- ── VIDEO DIALOG ── -->
+<dialog id="demo-dialog">
+  <button class="dialog-close" onclick="document.getElementById('demo-dialog').close()" aria-label="Close">✕</button>
+  <video controls id="demo-video">
+    <source src="shell-workforce-agent-DEMO-v4.mp4" type="video/mp4">
+    <p style="color:#fff;padding:24px;">Your browser doesn't support HTML5 video.</p>
+  </video>
+</dialog>
+
+<script>
+  // Show video preview once it can play
+  const preview = document.getElementById('demo-preview');
+  const fallback = document.getElementById('video-fallback');
+  if (preview) {
+    preview.addEventListener('canplay', () => {
+      preview.style.display = 'block';
+      if (fallback) fallback.style.display = 'none';
+    });
+  }
+
+  // Close dialog on backdrop click
+  const dlg = document.getElementById('demo-dialog');
+  const vid = document.getElementById('demo-video');
+  dlg.addEventListener('click', e => { if (e.target === dlg) dlg.close(); });
+  dlg.addEventListener('close', () => { vid.pause(); });
+</script>
+
+</body>
+</html>
